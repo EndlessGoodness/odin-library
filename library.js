@@ -37,8 +37,20 @@ function loopthroughLibrary() {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = cardHTML.trim();
 
+                // Add toggle read functionality
+                const toggleReadButton = document.createElement('button');
+                toggleReadButton.textContent = book.read ? 'Mark as Unread' : 'Mark as Read';
+                toggleReadButton.addEventListener('click', () => {
+                    book.read = !book.read; // Toggle the read status
+                    loopthroughLibrary(); // Refresh the display
+                });
+
+                // Append the toggle button to the card
+                const cardElement = tempDiv.firstChild; // Get the actual card element
+                cardElement.appendChild(toggleReadButton);
+
                 // Add delete functionality to the card's delete button
-                const deleteButton = tempDiv.querySelector('a');
+                const deleteButton = cardElement.querySelector('button');
                 deleteButton.addEventListener('click', (e) => {
                     e.preventDefault();
                     myLibrary.splice(i, 1); // Remove the book from the library
@@ -46,7 +58,7 @@ function loopthroughLibrary() {
                 });
 
                 // Append the card to the book list
-                bookList.appendChild(tempDiv.firstChild);
+                bookList.appendChild(cardElement);
             })
             .catch(error => console.error('Error loading card template:', error));
     }
