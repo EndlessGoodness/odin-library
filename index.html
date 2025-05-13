@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin Library</title>
+    <style>
+        #heading {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #add-book {
+            display: none; /* Hide the form initially */
+        }
+        #add-book-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: 5px solid #000000;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Odin Library</h1>
+    <h2 id="heading">My Books</h2>
+    <ul id="book-list"></ul>
+    <button id="add-book-btn">Add Book</button>
+      <!-- Book cards will be dynamically added here -->
+    <form id="add-book">
+        <label for="title">Title:</label>
+        <input id="title" type="text" name="title" requierd>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+        
+        <label for="edition">Edition:</label>
+        <input type="text" id="edition" name="edition">
+        
+        <label for="read">Read:</label>
+        <input type="checkbox" id="read" name="read">
+
+         <button type="button" id="submit" onclick="submitForm()">Add to Library</button>
+    </form>
+    
+    <script src="library.js"></script>
+    <script >loopthroughLibrary(); </script>
+    <script src="newbook.js"></script>
+
+</body>
+</html>
